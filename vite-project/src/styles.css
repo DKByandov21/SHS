@@ -1,0 +1,183 @@
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Header */
+.navbar {
+  background-color: #030A1C;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 80px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #99ADDB;
+  font-weight: medium;
+}
+
+.nav-links a:hover {
+  color: #ddd;
+}
+/* Content */
+.content-banner {
+  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+.arrow {
+
+  opacity: 100%;
+  position:absolute;
+  margin-bottom: 30px;
+  left: 48%;
+  bottom:0;
+}
+.arrow:hover {
+  opacity: 80%;
+
+}
+.content{
+  background-color: red;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+
+/* Login & Register */
+
+.auth-form {
+  max-width: 300px;
+  margin: auto;
+  margin-top: 12%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+}
+
+.auth-form h2 {
+  color: #333;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form label {
+  margin: 10px 0;
+}
+
+.auth-form input {
+  padding: 8px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.auth-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.auth-form button:hover {
+  background-color: #45a049;
+}
+.login-form {
+  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+.login-form Footer {
+  position: absolute;
+  bottom: 0;
+}
+/* Register */
+.register-form {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+}
+
+.register-form h2 {
+  color: #333;
+}
+
+.register-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-form label {
+  margin: 10px 0;
+}
+
+.register-form input {
+  padding: 8px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.register-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.register-form button:hover {
+  background-color: #45a049;
+}
+.register-page {
+  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+.register-page Footer {
+  position: absolute;
+  bottom: 0;
+}
