@@ -1,14 +1,15 @@
 
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
+import Login from "./routes/Login.jsx";
+import Register from "./routes/Register.jsx";
 import React from "react";
-import HomePage from "./pages/home.jsx";
+import HomePage from "./routes/Home.jsx";
+import MainPage from "./routes/Main.jsx";
 
 
 const App = () => {
     return (
-      <Register/>
-      );
+      <HomePage />
+    );
 };
 
 
