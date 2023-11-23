@@ -126,9 +126,7 @@ const Register = () => {
 
                   <br />
                   <div className="form-group">
-                    <button type="submit" onClick={handleUserRegister}>
-                      Register
-                    </button>
+                    <input type="submit" value="Register" className="form-control btn btn-primary" name="" />
                   </div>
                 </form>
               </div>
