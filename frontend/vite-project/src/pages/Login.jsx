@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import Footer from '../components/Footer'
 import Header from '../components/NavBar';
+import handleLogin from '../components/handleLogin';
 
 
-const Login = ({ handleLogin }) => {
+
+const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
   
-    const handleUserLogin = () => {
-      // You can add validation logic here before calling handleLogin
-      handleLogin({ username, password });
+    const handleLogin = (e) => {
+      e.preventDefault(); 
+      handleLogin({ username,password });
     };
-  
     return (
       <>
        <div className = "login-form">

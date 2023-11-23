@@ -1,5 +1,5 @@
 
-function Header(){
+function NavBar(){
   return (
     <nav className="navbar">
       <div className="logo">Nasheto Logo</div>
@@ -10,6 +10,6 @@ function Header(){
       </ul>
     </nav>
   );
-};
+}
 
-export default Header;
+export default NavBar;

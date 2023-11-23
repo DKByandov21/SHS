@@ -7,7 +7,7 @@ import HomePage from "./pages/home.jsx";
 
 const App = () => {
     return (
-      <Register></Register>
+      <Register/>
       );
 };
 
