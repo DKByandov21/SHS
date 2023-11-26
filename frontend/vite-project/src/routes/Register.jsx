@@ -1,141 +1,191 @@
 import { useState } from "react";
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar';
-import handleLogin from '../components/handleLogin';
+//import handleLogin from '../components/handleLogin';
 
 
 
 const Register = () => {
   
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [email, setEmail] = useState('');
-    const [grade, setGrade] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const handleUserRegister = (e) => {
-      e.preventDefault(); 
-      handleLogin({ firstname,lastname,email,grade,username,password });
-    };
-  
-    return (
-      <>
-      <div className= 'container'>
-        <div className='row main'>
-          <div className = "register-page">
-            <NavBar />
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        username: "",
+        grade: "",
+        password: "",
+      });
 
-              <div className="register-form">
-                <h2>Register</h2>
-                <form action="{{ url_for('register') }}" method="post" autoComplete="off">              
-                  <div className='form-group'>
-                    <label htmlFor='firstname' className='cols-sm-2 control-label'>
-                    First name
-                    </label>
-                    <input
-                        type="text"
-                        className='form-control'
-                        name='firstname'
-                        id='firstname'
-                        placeholder='Enter your first name'
-                        value={firstname}
-                        onChange={(e) => setFirstname(e.target.value)}
-                      />
-                  </div>
-                  <div className='form-group'>
-                    <label htmlFor='lastname' className='cols-sm-2 control-label'>
-                    Last name
-                    </label>
-                    <input
-                        type="text"
-                        className='form-control'
-                        name='lastname'
-                        id='lastname'
-                        placeholder='Enter your lastname'
-                        value={lastname}
-                        onChange={(e) => setLastname(e.target.value)}
-                      />
-                  </div>   
-                  
-                  <br />
-                  <div className='form-group'>
-                    <label htmlFor='email' className='cols-sm-2 control-label'>
-                    Email
-                    </label>
-                    <input
-                        type="email"
-                        className='form-control'
-                        name='email'
-                        id='email'
-                        placeholder='Enter your Email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                  </div>
-                  
-                  <br />
+      const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
 
-                  <div className='form-group'>
-                    <label htmlFor='number' className='cols-sm-2 control-label'>
-                    Grade
-                    </label>
-                    <input
-                        type="number"
-                        className='form-control'
-                        name='number'
-                        id='number'
-                        placeholder='Enter your grade'
-                        value={grade}
-                        onChange={(e) => setGrade(e.target.value)}
-                      />
-                  </div>
-                  
-                  <br />
-                  <div className='form-group'>
-                    <label htmlFor='username' className='cols-sm-2 control-label'>
-                    Username
-                    </label>
-                    <input
-                        type="text"
-                        className='form-control'
-                        name='username'
-                        id='username'
-                        placeholder='Enter your username'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                      />
-                  </div>
-                  
+      const handleSubmit = async (e) => {
+        e.preventDefault();
 
-                  <br />
-                  <div className='form-group'>
-                    <label htmlFor='password' className='cols-sm-2 control-label'>
-                    Password
-                    </label>
-                    <input
-                        type="password"
-                        className='form-control'
-                        name='password'
-                        id='password'
-                        placeholder='Enter your password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                  </div>
+        try {
+          const response = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
 
-                  <br />
-                  <div className="form-group">
-                    <input type="submit" value="Register" className="form-control btn btn-primary" name="" />
-                  </div>
-                </form>
-              </div>
-              <Footer />
-            </div>
-          </div>
+          if (response.ok) {
+            console.log("User registered successfully");
+            // Reset the form or navigate to another page as needed
+          } else {
+            console.error("Failed to register user");
+          }
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
+      };
+  return (
+    <>
+    <NavBar/>
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Register
+          </h2>
         </div>
-      </>
-    );
+
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div>
+              <label
+                htmlFor="first-name"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                First name
+              </label>
+              <div className="mt-2">
+                <input
+                  id="first-name"
+                  name="firstName"
+                  type="text"
+                  autoComplete="text"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="last-name"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Lats name
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="last-name"
+                  name="lastName"
+                  type="text"
+                  autoComplete="text"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Email
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Username
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  autoComplete="text"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="grade"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Grade
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="grade"
+                  name="grade"
+                  type="number"
+                  autoComplete="number"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Password
+                </label>
+              </div>
+              <div className="mt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="new-password"
+                  required
+                  onChange={handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Sign up
+              </button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+      <Footer/>
+    </>
+  );
   };
   
   export default Register;
