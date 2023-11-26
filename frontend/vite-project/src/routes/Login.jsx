@@ -1,19 +1,27 @@
 import { useState } from "react";
 import Footer from '../components/Footer'
 import Header from '../components/NavBar';
-import handleLogin from '../components/handleLogin';
 
+import axios from 'axios';
 
 
 const Login = () => {
 
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const handleHandleLogin = (e) => {
-      e.preventDefault(); 
-      handleLogin({ username,password });
-    };
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/login', {
+        username,
+        password,
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error('Login failed', error);
+    }
+  };
     return (
       <>
        <div className = "login-form">
@@ -25,7 +33,8 @@ const Login = () => {
               <label>
                 Username:
                 <input
-                  type="text"
+                  type="email"
+                  placeholder="Email"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -40,7 +49,7 @@ const Login = () => {
                 />
               </label>
               <br />
-              <button type="button" onClick={handleHandleLogin}>
+              <button type="button" onClick={handleLogin}>
                 Login
               </button>
             </form>
