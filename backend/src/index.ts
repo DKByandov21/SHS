@@ -1,37 +1,46 @@
-import { PrismaClient } from '@prisma/client'
-import express from 'express'
+// Import Request type
+const express = require('express');
+import { Response, Request } from "express"; 
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const { PrismaClient } = require('@prisma/client');
+// ... (your existing imports)
 
-const prisma = new PrismaClient()
-const app = express()
+const prisma = new PrismaClient();
+const app = express();
 
-app.use(express.json())
+app.use(cors());
+app.use(bodyParser.json());
 
-app.post('/register', async (req, res) => {
-  const userData = req.body;
-  console.log("Received data:", userData);
+app.post('/signup', async (req: Request, res: Response) => { // Explicitly define types for req and res
   try {
-    
-    
-   
+    console.log('Received signup request:', req.body);
+    const { firstName, lastName, email, username, grade, password } = req.body;
+
+    // Hash the password before storing it
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await prisma.user.create({
       data: {
-        firstName:userData.firstName,
-        lastName:userData.lastName,
-        email:userData.email,
-        username:userData.username,
-        grade:userData.grade,
-        password:userData.password // Note: You should hash the password before storing it in the database
+        firstName,
+        lastName,
+        email,
+        username,
+        grade,
+        password: hashedPassword,
       },
     });
-
-    res.status(200).json({ message: 'User registered successfully' });
-
+    console.log('User created:', newUser);
+    res.status(201).json({ user: newUser });
   } catch (error) {
-    console.error('Error registering user:', error);
+    console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+const PORT = process.env.PORT || 5000;
 
-
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

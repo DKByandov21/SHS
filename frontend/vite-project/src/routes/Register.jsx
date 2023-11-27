@@ -2,20 +2,30 @@ import { useState } from "react";
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar';
 //import handleLogin from '../components/handleLogin';
-
+import axios from 'axios';
 
 
 const Register = () => {
   
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        username: "",
-        grade: "",
-        password: "",
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [grade, setGrade] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignup = async () => {
+  try {
+      const response = await axios.post('http://localhost:5000/signup', {
+        firstName,
+        lastName,
+        email,
+        username,
+        grade,
+        password,
       });
 
+<<<<<<< HEAD
       const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
@@ -42,6 +52,13 @@ const Register = () => {
           console.error("Error submitting form:", error);
         }
       };
+=======
+      console.log(response.data);
+    } catch (error) {
+      console.error('Signup failed', error);
+    }
+  };  
+>>>>>>> bac316aec711d8fc9c9ff84ddead3a3809c64b5b
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -52,7 +69,7 @@ const Register = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" >
             <div>
               <label
                 htmlFor="first-name"
@@ -65,9 +82,9 @@ const Register = () => {
                   id="first-name"
                   name="firstName"
                   type="text"
-                  autoComplete="text"
-                  required
-                  onChange={handleChange}
+                  
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -87,9 +104,9 @@ const Register = () => {
                   id="last-name"
                   name="lastName"
                   type="text"
-                  autoComplete="text"
-                  required
-                  onChange={handleChange}
+                  
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -106,9 +123,9 @@ const Register = () => {
                   id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
-                  required
-                  onChange={handleChange}
+                  
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -124,10 +141,10 @@ const Register = () => {
                 <input
                   id="username"
                   name="username"
+                  
                   type="text"
-                  autoComplete="text"
-                  required
-                  onChange={handleChange}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -144,9 +161,8 @@ const Register = () => {
                   id="grade"
                   name="grade"
                   type="number"
-                  autoComplete="number"
-                  required
-                  onChange={handleChange}
+                  value={grade}
+                  onChange={(e) => setGrade(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -163,9 +179,9 @@ const Register = () => {
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="new-password"
-                  required
-                  onChange={handleChange}
+                  
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -173,6 +189,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
+                onClick={handleSignup}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign up
