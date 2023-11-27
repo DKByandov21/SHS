@@ -25,7 +25,7 @@ const Register = () => {
         password,
       });
 
-<<<<<<< HEAD
+
       const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
@@ -44,7 +44,6 @@ const Register = () => {
 
           if (response.ok) {
             console.log("User registered successfully");
-            // Reset the form or navigate to another page as needed
           } else {
             console.error("Failed to register user");
           }
@@ -52,13 +51,12 @@ const Register = () => {
           console.error("Error submitting form:", error);
         }
       };
-=======
       console.log(response.data);
     } catch (error) {
       console.error('Signup failed', error);
     }
   };  
->>>>>>> bac316aec711d8fc9c9ff84ddead3a3809c64b5b
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -204,4 +202,4 @@ const Register = () => {
   );
   };
   
-  export default Register;
+export default Register;

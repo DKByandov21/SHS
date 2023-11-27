@@ -6,56 +6,39 @@ import axios from 'axios';
 
 
 const Login = () => {
+  
 
-    const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/login', {
-        username,
-        password,
-      });
-
-      console.log(response.data);
-    } catch (error) {
-      console.error('Login failed', error);
-    }
-  };
     return (
       <>
-       <div className = "login-form">
-       <Header></Header>
+        <section className="login-UI">
+          <div className="login-banner">
+            <h1>Turn Your Ideas into reality</h1>
+            <p>Start for free and get attractive offers from the community</p>
+          </div> 
+          <div className="login-content">
+              <div className="login-content1">
+              <h1>Registration</h1>
+              <p>sdad</p>
+              <form>
+                <div className="login-blank">
+                  <input type="text" id="fname" name="fname" placeholder="First name"></input>
+                  <hr></hr>
+                  <br></br>
+                </div>
+                <div className="login-blank">
+                  <input type="text" id="fname" name="fname" placeholder="Last name"></input>
+                </div>
+                <div className="login-blank">
+                  <input type="text" id="fname" name="fname" placeholder="Email"></input>
+                </div>
+                <div className="login-blank">
+                  <input type="text" id="fname" name="fname" placeholder="Password"></input>
+                </div>
 
-          <div className="auth-form">
-            <h2>Login</h2>
-            <form>
-              <label>
-                Username:
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </label>
-              <br />
-              <label>
-                Password:
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </label>
-              <br />
-              <button type="button" onClick={handleLogin}>
-                Login
-              </button>
             </form>
-          </div>
-          <Footer></Footer>
-        </div>
+            </div> 
+          </div> 
+        </section>
       </>
     );
   };
