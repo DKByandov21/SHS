@@ -1,47 +1,36 @@
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Varela Round', sans-serif;  
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 20px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: red; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
-}
 
 /* Header */
+.navbar-div{
+  position: fixed;
+  width: 100%;
+  float: left;
+  opacity: 90%;
+}
 .navbar {
-  background-color: #030A1C;
-  padding: 20px;
+  background-color: white;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .logo {
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  float:left;
 }
-
+.logo img {
+  padding-left: 6rem;
+  height: 60px;
+}
 .nav-links {
   list-style: none;
   display: flex;
@@ -49,14 +38,15 @@
 
 .nav-links li {
   margin-right: 80px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #99ADDB;
+  color: black;
   font-weight: medium;
+  transition: color 0.5s;
 }
 
 .nav-links a:hover {
@@ -64,35 +54,136 @@
 }
 /* Content */
 .content-banner {
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 95px;
   width: auto;
-  height: 100vh;
-  opacity: 100%;
   overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  background-image: url("assets/banner.png");
 }
-
-
-.arrow {
-
-  opacity: 100%;
-  position:absolute;
-  margin-bottom: 30px;
-  left: 48%;
-  bottom:0;
-
-}
-.arrow:hover {
-  opacity: 80%;
-}
-.content{
-  background-color: red;
-  justify-content: space-between;
+.content-banner1 {
+  display: flex;
+  width: 1280px;
+  height:600px;
+  margin: 0px auto;
   align-items: center;
-  width: auto;
-  height: 100vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.content-banner1 h1 {
+  font-size: 4rem;
+  color: white;
+}
+.content-banner1 button {
+  background-color: #99ADDB;
+  border: none;
+  border-radius: 5rem;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 50px;
+}
+.content-banner1 button:hover {
+  background-color: blue;
+
+}
+ 
+.section {
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+  height:200px;
+}
+.section-content {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height:200px;
+  justify-content: space-around;
+}
+.steps-content {
+   width: 400px;
+
+}
+.steps h3 {
+  font-size: 30px;
+  color: #20275A;
+}
+.section-1 {
+  color: white;
+  background-color: #c4c4c4;
+  width: 100%;
 }
 
+.section__title {
+  padding-top: 3rem;
+}
+.section-content1 {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+.section-card {
+  padding-bottom: 10rem;
+} 
+.section-card h3{
+  padding-top: 1rem;
+  color: #20275A;
+}
+.section__title h4 {
+  font-family: 'Varela Round', sans-serif;  
+  font-size: 1.2rem;
+  color: #20275A;
+}
+h1 {
+  font-family: 'Varela Round', sans-serif;  
+  font-size: 3rem;
+
+}
+.section-content2 li {
+  padding-top: 30px;
+  font-size: 1.2rem;
+}
+.section-3 {
+  background-color: #e9e9e9;
+  width: 100%;
+  height: 500px;
+}
+.section-3 p{
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.section__3content {
+  margin: 0px auto;
+  width: 1000px;
+}
+hr {
+  border: 0.15rem solid black;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0px auto;
+  opacity: 10%;
+}
+.section-2 {
+  background-color: #F4F4F4;
+  width: 100%;
+  padding-bottom: 5rem;
+}
 /* Login & Register */
 
 .auth-form {
@@ -148,7 +239,7 @@
   height: 100vh;
 }
 .login-form Footer {
-  position: absolute;
+  position:  absolute;
   bottom: 0;
 }
 /* Register */
@@ -207,16 +298,4 @@
   position: absolute;
   bottom: 0;
 }
-.content-banner1 {
-  position: absolute;
-  top: 5;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  height: 31.25rem ;
-  background-image: linear-gradient(to top, rgba(217,217,217,0), rgb(3,10,28));
-}
+

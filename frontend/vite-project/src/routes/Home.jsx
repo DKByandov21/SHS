@@ -3,196 +3,150 @@ import BannerVideo from '../assets/banner-video.mp4'
 import Arrow from '../assets/arrow.png'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer'
+import {Link} from "react-router-dom"
+import ProfileIcon from "../assets/profile.png"
+
+
 
 
 
 function HomePage() {
 
   const section1Ref = useRef(null);
+  const section2Ref = useRef(null);
 
-  const handleScroll = () => {
-    if (section1Ref.current) {
-      const sectionTop = section1Ref.current.offsetTop;
-      const scrollPosition = window.scrollY;
 
-      const threshold = 1000;
-
-      if (scrollPosition > sectionTop - threshold) {
-        console.log('Scrolled down to the section!');
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const handleClick = () => {
+  const handleClick_section1 = () => {
     if (section1Ref.current) {
       section1Ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+  const handleClick_section2 = () => {
+    if (section2Ref.current) {
+      section2Ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const containerStyle = {
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
   };
   return (
     <div style={containerStyle}>
-      <NavBar />
+      <NavBar handleClick={handleClick_section1} handleClick1={ handleClick_section2}/>
 
       <div>
-        <div className="content-banner1" />
-        <div className='content-banner'>
-          <video width={"1920px"} muted loop autoPlay>
-            <source src={BannerVideo} type="video/mp4" />
-          </video>
-        </div>
-        <div>
-          <img className='arrow' onClick={handleClick} src={Arrow}></img>
-        </div>
-
+          <div className='content-banner'>
+            <div className='content-banner1'>
+              <h1>Complete Solution 
+    For Your Education Needs!</h1>
+              <Link to="/register"><button type="button">Register</button></Link>
+            </div>
+          </div>
       </div>
 
-      <section className="section" ref={section1Ref} id="section--1">
+      <section className="section">
+        <div className="section-content">
+          <div className="steps">
+            <div className="steps-content">
+              <p>STEP 1</p>
+              <h3>REGISTER</h3>
+            </div>
+          </div>
+          <div className="steps">
+            <div className="steps-content">
+              <p>STEP 2</p>
+              <h3>POST YOUR PROBLEM</h3>
+            </div>
+          </div>
+          <div className="steps">
+            <div className="steps-content">
+              <p>STEP 3</p>
+              <h3>FIND INSTRUCTOR</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-2" ref={section1Ref} id="section-2">
         <div className="section__title">
-          <h2 className="section__description">Features</h2>
-          <h3 className="section__header">
-            Everything you need in a modern bank and more.
-          </h3>
+          <h4>Features</h4>
+          <h1>What does SHS offer?</h1>
+          <br></br>
+          <hr></hr>
         </div>
+          <div className="section-content2">
+            <br></br>
+            <ul>
+              <li><b>Peer Tutoring:</b> Connect with classmates for academic help in specific subjects.
 
-        <div className="features">
-          <img
-            src="img/digital-lazy.jpg"
-            data-src="img/digital.jpg"
-            alt="Computer"
-            className="features__img lazy-img"
-          />
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-monitor"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">100% digital bank</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
-              sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
-              debitis ducimus.
-            </p>
+</li>
+              <li><b>Study Groups:</b> Form virtual study groups to collaborate on projects and share resources. </li>
+              <li><b>Q&A Forum:</b> Ask and answer questions in an interactive forum. </li>
+              <li><b>Resource Hub:</b> Access and share study materials and notes. </li>
+              <li> <b>Mentorship:</b> Connect with experienced students for guidance on academics and career choices. </li>
+            </ul>
           </div>
-
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-trending-up"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">Watch your money grow</h5>
-            <p>
-              Nesciunt quos autem dolorum voluptates cum dolores dicta fuga
-              inventore ab? Nulla incidunt eius numquam sequi iste pariatur
-              quibusdam!
-            </p>
-          </div>
-          <img
-            src="img/grow-lazy.jpg"
-            data-src="img/grow.jpg"
-            alt="Plant"
-            className="features__img lazy-img"
-          />
-
-          <img
-            src="img/card-lazy.jpg"
-            data-src="img/card.jpg"
-            alt="Credit card"
-            className="features__img lazy-img"
-          />
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-credit-card"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">Free debit card included</h5>
-            <p>
-              Quasi, fugit in cumque cupiditate reprehenderit debitis animi enim
-              eveniet consequatur odit quam quos possimus assumenda dicta fuga
-              inventore ab.
-            </p>
-          </div>
-        </div>
+      </section>
+      <section className="section-3">
         <div className="section__title">
-          <h2 className="section__description">Features</h2>
-          <h3 className="section__header">
-            Everything you need in a modern bank and more.
-          </h3>
+          <h4>ABOUT</h4>
+
+          <h1>ABOUT US</h1>
+          <br></br>
+          <hr></hr>
         </div>
+        <div className='section__3content'>
+          <p>
+  Welcome to <b>SHS</b>—your go-to hub for student success! We're passionate about empowering students on their academic journey. From comprehensive study resources and expert advice to interactive tools and career guidance, we've got you covered. Our user-friendly platform is designed to make your educational experience seamless. <Link to="/register">Join us </Link>at SHS and let's embark on the path to success together. Your achievement is our priority!</p>
+        </div>
+      </section>
+      <section className="section-1" ref={section2Ref} id="section-1">
+        <div className="section__title">
+          <h4>Instructors</h4>
 
-        <div className="features">
-          <img
-            src="img/digital-lazy.jpg"
-            data-src="img/digital.jpg"
-            alt="Computer"
-            className="features__img lazy-img"
-          />
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-monitor"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">100% digital bank</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias
-              sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam
-              debitis ducimus.
-            </p>
+          <h1>Popular Instructors</h1>
+          <br></br>
+          <hr></hr>
+        </div>
+        <div className="section-content1">
+          <div className='section-card'>
+            <img src={ProfileIcon}></img> 
+            <h3>Dimitar Byandov</h3>
+            <p>Frontend Developer</p>
           </div>
-
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-trending-up"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">Watch your money grow</h5>
-            <p>
-              Nesciunt quos autem dolorum voluptates cum dolores dicta fuga
-              inventore ab? Nulla incidunt eius numquam sequi iste pariatur
-              quibusdam!
-            </p>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img>
+            <h3>Ivan Delchilov</h3>
+            <p>Backend Developer</p>
           </div>
-          <img
-            src="img/grow-lazy.jpg"
-            data-src="img/grow.jpg"
-            alt="Plant"
-            className="features__img lazy-img"
-          />
-
-          <img
-            src="img/card-lazy.jpg"
-            data-src="img/card.jpg"
-            alt="Credit card"
-            className="features__img lazy-img"
-          />
-          <div className="features__feature">
-            <div className="features__icon">
-              <svg>
-                <use  href="img/icons.svg#icon-credit-card"></use>
-              </svg>
-            </div>
-            <h5 className="features__header">Free debit card included</h5>
-            <p>
-              Quasi, fugit in cumque cupiditate reprehenderit debitis animi enim
-              eveniet consequatur odit quam quos possimus assumenda dicta fuga
-              inventore ab.
-            </p>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img> 
+            <h3>Dimitar Byandov</h3>
+            <p>Frontend Developer</p>
+          </div>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img>
+            <h3>Ivan Delchilov</h3>
+            <p>Backend Developer</p>
+          </div>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img> 
+            <h3>Dimitar Byandov</h3>
+            <p>Frontend Developer</p>
+          </div>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img>
+            <h3>Ivan Delchilov</h3>
+            <p>Backend Developer</p>
+          </div>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img> 
+            <h3>Dimitar Byandov</h3>
+            <p>Frontend Developer</p>
+          </div>
+          <div className='section-card'>
+            <img src={ProfileIcon}></img>
+            <h3>Ivan Delchilov</h3>
+            <p>Backend Developer</p>
           </div>
         </div>
       </section>
