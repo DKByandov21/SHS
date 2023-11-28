@@ -6,10 +6,6 @@ import Footer from '../components/Footer'
 import {Link} from "react-router-dom"
 import ProfileIcon from "../assets/profile.png"
 
-
-
-
-
 function HomePage() {
 
   const section1Ref = useRef(null);

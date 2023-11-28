@@ -7,22 +7,24 @@ import axios from 'axios';
 
 const Login = () => {
 
-    const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post("http://localhost:5000/login", {
         username,
         password,
       });
 
-      console.log(response.data);
+      const token = response.data.token;
+      console.log('Token:', token);
+      
     } catch (error) {
-      console.error('Login failed', error);
+      console.error('Login failed:', error.message);
     }
   };
-    return (
+  return (
       <>
        <div className = "login-form">
        <Header></Header>
@@ -33,8 +35,9 @@ const Login = () => {
               <label>
                 Username:
                 <input
-                  type="email"
-                  placeholder="Email"
+                  id="username"
+                  
+                  type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -43,6 +46,8 @@ const Login = () => {
               <label>
                 Password:
                 <input
+                  id="password"
+                  name="password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
