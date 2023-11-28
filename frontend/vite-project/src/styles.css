@@ -478,7 +478,103 @@ hr {
   -webkit-transform: rotate(135deg);
 }
 
+/* Main Page */
+
+.main-page {
+  flex-direction: row ;
+  display: flex;
+  background-color: #20275A;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5rem;
+  border: solid 0.2rem white;  
+  border-radius: 15px;
+  box-shadow: 0px 0px 2rem lightblue;
+
+  width: 25vw;
+  height: 75vh;
+  background-color: white;
+}
+.side-menu h2{
+  margin: 5rem;
+  text-decoration: none;
+}
+.side-menu a{
+  font-size: 2rem;
+  color: black;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.side-menu a:hover{
+  color: darkblue;
+  font-size: 2.5rem;
+}
+.side-menu hr{
+  border: 0.15rem solid black;
+  border-radius: 5px;
+  width: 75%;
+  margin: 0px auto;
+  opacity: 10%;
+}
+.blogs {
+  flex-direction: column;
+  align-content: center;
+  margin: 5rem;
+  border: solid white;
+  border-radius: 15px;
+  width: 50vw;
+  height: 75vh;
+  box-shadow: 0px 0px 2rem lightblue;
+
+  background-color: white;
+}
+.issue { 
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0px auto;
+  margin-top: 2rem;
+  border: solid black;
+  border-radius: 15px;
+  width: 35vw;
+  height: 15vh; 
+  background-color: white;
+  transition: all 0.2s;
+}
+.issue:hover{ 
+  height: 20vh; 
+}
 
 
+.main-profile {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 5rem;
+  border: solid white;
+  border-radius: 15px;
+  width: 50vw;
+  height: 75vh;
+  box-shadow: 0px 0px 2rem lightblue;
 
-  
+  background-color: white;
+}
+.main-profile1 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border: solid white;
+  border-radius: 15px;
+  width: 50vw;
+  height: 45vh;
+
+  background-color: black;
+}

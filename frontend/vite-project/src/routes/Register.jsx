@@ -55,7 +55,7 @@ const Register = () => {
      <div className = "login-form">
         <div className = "login-banner2">
           <div className = "login-banner1">
-          <i className="arrow"><Link to="/" className="arrow"></Link></i>
+          <Link to="/"><i className="arrow"></i></Link>
             <label>
               <h2>Students helping students, one login closer to success.</h2>
               <br></br>
