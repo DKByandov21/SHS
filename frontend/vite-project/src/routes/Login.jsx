@@ -1,30 +1,27 @@
 import { useState } from "react";
 import Footer from '../components/Footer'
-import Header from '../components/NavBar';
-
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
 
-  const [username, setUsername] = useState('');
+    const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post('http://localhost:5000/login', {
         username,
         password,
       });
 
-      const token = response.data.token;
-      console.log('Token:', token);
-      
+      console.log(response.data);
     } catch (error) {
-      console.error('Login failed:', error.message);
+      console.error('Login failed', error);
     }
   };
-  return (
+    return (
       <>
        <div className = "login-form">
        <Header></Header>
@@ -35,9 +32,8 @@ const Login = () => {
               <label>
                 Username:
                 <input
-                  id="username"
-                  
-                  type="text"
+                  type="email"
+                  placeholder="Email"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -46,8 +42,6 @@ const Login = () => {
               <label>
                 Password:
                 <input
-                  id="password"
-                  name="password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
