@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import BannerVideo from '../assets/banner-video.mp4'
-import Arrow from '../assets/arrow.png'
+import React, { useRef, useEffect } from 'react'; 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer'
 import {Link} from "react-router-dom"
 import ProfileIcon from "../assets/profile.png"
+import Login from './Login';
 
 
 
@@ -35,6 +34,7 @@ function HomePage() {
   };
 
   return (
+    
     <div style={containerStyle}>
       <NavBar handleClick={handleClick_section1} handleClick1={ handleClick_section2} handleClick2={ handleClick_section3}/>
 
@@ -48,7 +48,7 @@ function HomePage() {
           </div>
       </div>
 
-      <section className="section">
+      <section className="section"> 
         <div className="section-content">
           <div className="steps">
             <div className="steps-content">
@@ -125,7 +125,6 @@ function HomePage() {
         
         </div>
       </section>
-
       <Footer />  
     </div>
     

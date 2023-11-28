@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 
-const Login = () => {
+const Register = () => {
 
     const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -98,4 +98,4 @@ const Login = () => {
     );
   };
   
-  export default Login;
+  export default Register;
