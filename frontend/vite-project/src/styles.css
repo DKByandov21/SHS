@@ -8,12 +8,14 @@
 
 
 
+
 /* Header */
 .navbar-div{
   position: fixed;
   width: 100%;
   float: left;
   opacity: 90%;
+  transition: all 0.3s;
 }
 .navbar {
   background-color: white;
@@ -187,15 +189,15 @@ hr {
 /* Login & Register */
 
 .auth-form {
-  max-width: 300px;
-  margin: auto;
-  margin-top: 12%;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
   text-align: center;
+  
 }
 
 .auth-form h2 {
@@ -224,7 +226,7 @@ hr {
   border: none;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
+  width: 65%;
   border-radius: 3px;
 }
 
@@ -232,6 +234,7 @@ hr {
   background-color: #45a049;
 }
 .login-form {
+  display: flex;
   background-color: blue;
   justify-content: space-between;
   align-items: center;
@@ -242,6 +245,168 @@ hr {
   position:  absolute;
   bottom: 0;
 }
+.login-banner {
+  
+  background-image: url("assets/content-background.jpg");
+  
+  display: flex;
+  width: 50%;
+  height: 100vh;
+  align-items: center;
+  color: white;
+}
+.login-banner2 {
+  
+  background-image: url("assets/content-background1.jpg");
+  
+  display: flex;
+  width: 50%;
+  height: 100vh;
+  align-items: center;
+  color: white;
+}
+
+.login-banner1 {
+  display:flex;
+  flex-direction: column;
+  margin: 0px auto;
+  display: flex;
+  width: 75%;
+  height: 100vh;
+  
+}
+.login-banner1 h2{
+  font-size: 2.2rem;
+}
+.login-banner1 p {
+  font-size: 1.5rem;
+}
+.login-banner1 label {
+  margin-top: 35vh;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+}
+.overlay {
+  position: absolute;
+  top:0;
+  left: 1;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(65, 67, 82, 0.8);
+}
+.login-content {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100vh;
+}
+.login-content {
+  --s: 25vmin;
+  --p: calc(var(--s) / 2);
+  --c1: pink;
+  --c2: dodgerblue;
+  --c3: white;
+  --bg: var(--c3);
+  --d: 4000ms;
+  --e: cubic-bezier(0.76, 0, 0.24, 1);
+  
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--c2) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
+  background-size: var(--s) var(--s);
+  background-position: 
+    calc(var(--p) *  1) calc(var(--p) *  0), 
+    calc(var(--p) * -1) calc(var(--p) *  1), 
+    calc(var(--p) *  1) calc(var(--p) * -1), 
+    calc(var(--p) * -1) calc(var(--p) *  0);
+  animation: 
+    color var(--d) var(--e) infinite,
+    position var(--d) var(--e) infinite;
+}
+
+@keyframes color {
+  0%, 25% {
+    --bg: var(--c3);
+  }
+  26%, 50% {
+    --bg: var(--c1);
+  }
+  51%, 75% {
+    --bg: var(--c3);
+  }
+  76%, 100% {
+    --bg: var(--c2);
+  }
+}
+
+@keyframes position {
+  0% {
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  0), 
+      calc(var(--p) * -1) calc(var(--p) *  1), 
+      calc(var(--p) *  1) calc(var(--p) * -1), 
+      calc(var(--p) * -1) calc(var(--p) *  0);
+  }
+  25% {
+    background-position: 
+      calc(var(--p) *  1) calc(var(--p) *  4), 
+      calc(var(--p) * -1) calc(var(--p) *  5), 
+      calc(var(--p) *  1) calc(var(--p) *  3), 
+      calc(var(--p) * -1) calc(var(--p) *  4);
+  }
+  50% {
+    background-position: 
+      calc(var(--p) *  3) calc(var(--p) * 8), 
+      calc(var(--p) * -3) calc(var(--p) * 9), 
+      calc(var(--p) *  2) calc(var(--p) * 7), 
+      calc(var(--p) * -2) calc(var(--p) * 8);
+  }
+  75% {
+    background-position: 
+      calc(var(--p) *  3) calc(var(--p) * 12), 
+      calc(var(--p) * -3) calc(var(--p) * 13), 
+      calc(var(--p) *  2) calc(var(--p) * 11), 
+      calc(var(--p) * -2) calc(var(--p) * 12);
+  }
+  100% {    
+    background-position: 
+      calc(var(--p) *  5) calc(var(--p) * 16), 
+      calc(var(--p) * -5) calc(var(--p) * 17), 
+      calc(var(--p) *  5) calc(var(--p) * 15), 
+      calc(var(--p) * -5) calc(var(--p) * 16);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  login-content1 {
+    animation: none;
+  }
+}
+.login-content1 {
+
+  margin: 0px auto;
+  width: 50%;
+  height: 100vh;
+}
+
+.login-content1 h1{
+  margin-top: 25vh;
+  font-size: 2.2rem;
+  color: white;
+}
+.login-content1 p{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
 /* Register */
 .register-form {
   max-width: 1000px;
@@ -297,5 +462,20 @@ hr {
 .register-page Footer {
   position: absolute;
   bottom: 0;
+}
+
+.arrow {
+  position: absolute;
+  top:30px;
+  left: 40px;
+  border: solid white;
+  border-radius: 15px;
+
+  opacity: 100%;
+  border-width: 0 20px 20px 0;
+  display: inline-block;
+  padding: 20px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 

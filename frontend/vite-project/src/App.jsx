@@ -13,6 +13,7 @@ const App = createBrowserRouter(
       <Route path="/" element={<HomePage/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} /> 
+      <Route path="/main" element={<MainPage/>} /> 
     </>
   )
 );

@@ -8,12 +8,10 @@ import ProfileIcon from "../assets/profile.png"
 
 
 
-
-
 function HomePage() {
-
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
+  const section3Ref = useRef(null);
 
 
   const handleClick_section1 = () => {
@@ -26,13 +24,19 @@ function HomePage() {
       section2Ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const handleClick_section3 = () => {
+    if (section3Ref.current) {
+      section3Ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const containerStyle = {
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
   };
+
   return (
     <div style={containerStyle}>
-      <NavBar handleClick={handleClick_section1} handleClick1={ handleClick_section2}/>
+      <NavBar handleClick={handleClick_section1} handleClick1={ handleClick_section2} handleClick2={ handleClick_section3}/>
 
       <div>
           <div className='content-banner'>
@@ -86,7 +90,7 @@ function HomePage() {
             </ul>
           </div>
       </section>
-      <section className="section-3">
+      <section className="section-3" ref={section2Ref}>
         <div className="section__title">
           <h4>ABOUT</h4>
 
@@ -99,7 +103,7 @@ function HomePage() {
   Welcome to <b>SHS</b>—your go-to hub for student success! We're passionate about empowering students on their academic journey. From comprehensive study resources and expert advice to interactive tools and career guidance, we've got you covered. Our user-friendly platform is designed to make your educational experience seamless. <Link to="/register">Join us </Link>at SHS and let's embark on the path to success together. Your achievement is our priority!</p>
         </div>
       </section>
-      <section className="section-1" ref={section2Ref} id="section-1">
+      <section className="section-1" ref={section3Ref} id="section-1">
         <div className="section__title">
           <h4>Instructors</h4>
 
@@ -118,41 +122,13 @@ function HomePage() {
             <h3>Ivan Delchilov</h3>
             <p>Backend Developer</p>
           </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img> 
-            <h3>Dimitar Byandov</h3>
-            <p>Frontend Developer</p>
-          </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img>
-            <h3>Ivan Delchilov</h3>
-            <p>Backend Developer</p>
-          </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img> 
-            <h3>Dimitar Byandov</h3>
-            <p>Frontend Developer</p>
-          </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img>
-            <h3>Ivan Delchilov</h3>
-            <p>Backend Developer</p>
-          </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img> 
-            <h3>Dimitar Byandov</h3>
-            <p>Frontend Developer</p>
-          </div>
-          <div className='section-card'>
-            <img src={ProfileIcon}></img>
-            <h3>Ivan Delchilov</h3>
-            <p>Backend Developer</p>
-          </div>
+        
         </div>
       </section>
 
       <Footer />  
     </div>
+    
   );
 }
 
