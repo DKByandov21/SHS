@@ -3,12 +3,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer'
 import {Link} from "react-router-dom"
 import ProfileIcon from "../assets/profile.png"
-<<<<<<< HEAD
-=======
-import Login from './Login';
-
-
->>>>>>> 51a9c9575ebb387ae1fe3861b40a5396bde11901
 
 function HomePage() {
   const section1Ref = useRef(null);

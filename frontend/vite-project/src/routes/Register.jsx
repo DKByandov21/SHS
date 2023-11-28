@@ -18,7 +18,6 @@ const Register = () => {
         password,
       });
 
-<<<<<<< HEAD
 
       const handleChange = (e) => {
         setFormData({ formData, [e.target.name]: e.target.value });
@@ -45,36 +44,22 @@ const Register = () => {
           console.error("Error submitting form:", error);
         }
       };
-=======
->>>>>>> 51a9c9575ebb387ae1fe3861b40a5396bde11901
       console.log(response.data);
     } catch (error) {
       console.error('Login failed', error);
     }
-<<<<<<< HEAD
   };  
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Register
-          </h2>
-        </div>
-=======
-  };
-    return (
-      <>
-       <div className = "login-form">
-          <div className = "login-banner2">
-            <div className = "login-banner1">
-            <Link to="/"><i className="arrow"></i></Link>
-              <label>
-                <h2>Students helping students, one login closer to success.</h2>
-                <br></br>
-                <p>Unite in learning.</p>
->>>>>>> 51a9c9575ebb387ae1fe3861b40a5396bde11901
+     <div className = "login-form">
+        <div className = "login-banner2">
+          <div className = "login-banner1">
+          <i className="arrow"><Link to="/" className="arrow"></Link></i>
+            <label>
+              <h2>Students helping students, one login closer to success.</h2>
+              <br></br>
+              <p>Unite in learning.</p>
 
               </label>
             </div>

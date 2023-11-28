@@ -4,23 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 
 
-function NavBar({ handleClick ,handleClick1, handleClick2 }){
-  const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
-  const [visible, setVisible] = useState(true);
+function NavBarSecond(){
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setVisible(prevScrollpos > currentScrollPos || currentScrollPos === 0);
-      setPrevScrollpos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollpos]);
   return (
     <div className="navbar-div" style={{ top: visible ? '0' : '-95px' }}>
       <nav className="navbar">
@@ -40,4 +25,4 @@ function NavBar({ handleClick ,handleClick1, handleClick2 }){
   );
 }
 
-export default NavBar;
+export default NavBarSecond;

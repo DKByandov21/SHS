@@ -48,10 +48,11 @@
   text-decoration: none;
   color: black;
   font-weight: medium;
-  transition: color 0.5s;
+  transition: all 0.5s;
 }
 
 .nav-links a:hover {
+  font-size: 1.1rem;
   color: #ddd;
 }
 /* Content */
@@ -91,12 +92,11 @@
   font-weight: 600;
   margin: 4px 2px;
   cursor: pointer;
-  transition: background-color 0.5s;
+  transition: all 1s;
   margin-top: 50px;
 }
 .content-banner1 button:hover {
   background-color: blue;
-
 }
  
 .section {
@@ -478,3 +478,7 @@ hr {
   -webkit-transform: rotate(135deg);
 }
 
+
+
+
+  
