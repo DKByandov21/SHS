@@ -32,9 +32,9 @@ const Register = () => {
       console.log("User registered successfully");
       
       // Redirect to the "main" page
-      navigate(navigate('/main'), {
+      navigate('/main', {
         state: {
-          classNames: response.data.user.classNames,
+          claes: response.data.user.classNames,
           inputs: { username, firstName, lastName, email, password },
         },
       });

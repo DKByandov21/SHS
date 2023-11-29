@@ -1,46 +1,46 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "email": "dimitar.byandov@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "2",
+        "id": 2,
         "email": "ivan@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "3",
+        "id": 3,
         "email": "toshko@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "4",
+        "id": 4,
         "email": "byandov@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "5",
+        "id": 5,
         "email": "dadadsd@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "6",
+        "id": 6,
         "email": "dagogo@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "7",
+        "id": 7,
         "email": "smashorpass@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "8",
+        "id": 8,
         "email": "dadsadadadad@gmail.com",
         "password": "parola1244"
     },
     {
-        "id": "9",
+        "id": 9,
         "email": "tosasddadhko@gmail.com",
         "password": "parola1244"
     }

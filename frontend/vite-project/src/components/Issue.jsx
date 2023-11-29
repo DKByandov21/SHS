@@ -1,55 +1,25 @@
 
 import React, {Component} from "react";
+import forms from "../data/forms.json"
 
 class Issue extends Component {
     render(){
         return (
             <>
                 <div className="blogs">
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
-                    <div className="issue">
-                    <h3>How to code with react</h3>
-                    <p>20 January 2023</p>
-                    </div>
+                        {
+                            forms && forms.map(record => {
+                                return (
+                                    <>
+                                    <div className="issue">
+                                        <h3>{record.password}</h3>
+                                        <p>{record.email}</p>
+                                    </div>
+                                    </>
+                                );
+                            })
+                        }
+
               </div>
             </>
 
