@@ -28,7 +28,7 @@ const authenticateToken = (err:any,req: Request, res: Response, next: NextFuncti
 };
 
 app.post('/signup', async (req, res) => {
-  const {  firstName, lastName, email, username, grade, password } = req.body;
+  const {  firstName, lastName, email, username, password } = req.body;
 
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -40,7 +40,6 @@ app.post('/signup', async (req, res) => {
       lastName,
       email,
       username,
-      grade,
       password: hashedPassword,
 
     },

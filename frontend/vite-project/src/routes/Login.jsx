@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
 
 
-    const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
@@ -46,17 +46,15 @@ const Login = () => {
                 <h2>Login</h2>
                 <form>
                   <label>
-                    Username:
+
                     <input
                       type="email"
                       placeholder="Email"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       />
                   </label>
-                  <br />
                   <label>
-                    Password:
                     <input
                       type="password"
                       placeholder="Password"

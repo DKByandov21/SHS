@@ -6,16 +6,19 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
 
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/login', {
-        username,
-        password,
+      const response = await axios.post('http://localhost:5000/signup', {
+       
+        firstName,
+        lastName,
+        email,
+        password 
       });
 
 
@@ -66,52 +69,51 @@ const Register = () => {
           </div>
           <div className = "login-content">
           <div className = "overlay">
-            <div className = "login-content1">
+            <div className = "register-content1">
               <label>
               </label>
-                <h1>Welcome Back!</h1>
-                <p> Please login to continue.</p>
-              <div className="auth-form">
+                <h1>Welcome!</h1>
+                <p>Begin your journey now.</p>
+              <div className="auth-form1">
                 <h2>Registration</h2>
                 <form>
                   <label>
-                    First Name:
                     <input
-                      type="email"
-                      placeholder="Email"
+                      type="name"
+                      placeholder="First Name"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       />
                   </label>
                   <label>
-                    Last Name:
                     <input
-                      type="email"
-                      placeholder="Email"
+                      type="name"
+                      placeholder="Last Name"
+                      className="input"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       />
                   </label>
                   <label>
-                    Username:
                     <input
                       type="email"
                       placeholder="Email"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      className="input"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       />
                   </label>
-                  <br />
-                  <label>
-                    Password:
+                    <label>
                     <input
                       type="password"
+                      placeholder="Password"
+                      className="input"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       />
                   </label>
                   <br />
-                  <button type="button" onClick={handleLogin}>
+                  <button type="button" onClick={handleRegister}>
                     Login
                   </button>
                 </form>

@@ -1,7 +1,7 @@
 import NavBarSecond from '../components/NavBarSecond';
 import Footer from '../components/Footer'
 import {Link} from "react-router-dom"
-
+import ProfileP from "../assets/profile.png"
 
 function MainProfile(){
 
@@ -24,7 +24,9 @@ function MainProfile(){
               </div>
               <div className="main-profile">
                 <div className="main-profile1">
-
+                  <div className='profile'>
+                    <img src= {ProfileP}></img>
+                  </div>
                 </div>
               </div>
 

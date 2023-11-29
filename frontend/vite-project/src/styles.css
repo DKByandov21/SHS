@@ -57,10 +57,10 @@
 }
 /* Content */
 .content-banner {
+  margin-top:95px;
   width: auto;
   overflow: hidden;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
   background-image: url("assets/banner.png");
@@ -190,16 +190,16 @@ hr {
 .auth-form {
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 5px solid white;
+  border-radius: 20px;
   background-color: white;
   text-align: center;
-  
+  width: 80%;
 }
 
 .auth-form h2 {
+  margin-top: 1.5rem;
   color: #333;
 }
 
@@ -210,26 +210,91 @@ hr {
 }
 
 .auth-form label {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .auth-form input {
-  padding: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   margin-top: 5px;
-  width: 100%;
+  transition: all 0.5s;
+}
+.auth-form input:hover {
+  padding: 15px;
+
 }
 
 .auth-form button {
   background-color: #4caf50;
   color: #fff;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   padding: 10px;
   cursor: pointer;
-  width: 65%;
-  border-radius: 3px;
+  font-size: 1rem;
+  margin-bottom:  1.5rem;
+  width: 45%;
 }
 
 .auth-form button:hover {
+  background-color: #45a049;
+}
+.auth-form1 {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 5px solid white;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  width: 80%;
+}
+
+.auth-form1 h2 {
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+.auth-form1 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form1 label {
+  margin: 20px 0;
+}
+
+.auth-form1 input {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 5px;
+  transition: all 0.5s;
+}
+.auth-form1 input:hover {
+  padding: 15px;
+
+}
+
+.auth-form1 button {
+  background-color: #4caf50;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom:  1.5rem;
+  width: 45%;
+}
+
+.auth-form1 button:hover {
   background-color: #45a049;
 }
 .login-form {
@@ -388,18 +453,40 @@ hr {
   }
 }
 .login-content1 {
-
+  display: flex;
+  flex-direction: column;
   margin: 0px auto;
   width: 50%;
   height: 100vh;
+  align-items: center;
 }
 
 .login-content1 h1{
-  margin-top: 25vh;
+  margin-top: 18vh;
   font-size: 2.2rem;
   color: white;
 }
 .login-content1 p{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+.register-content1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  width: 50%;
+  height: 100vh;
+  align-items: center;
+}
+
+.register-content1 h1{
+  margin-top: 10vh;
+  font-size: 2.2rem;
+  color: white;
+}
+.register-content1 p{
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 1.5rem;
@@ -567,14 +654,13 @@ hr {
   background-color: white;
 }
 .main-profile1 {
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   border: solid white;
   border-radius: 15px;
-  width: 50vw;
-  height: 45vh;
-
-  background-color: black;
-}
+  width: 40vw;
+  height: 100vh;
+}  
