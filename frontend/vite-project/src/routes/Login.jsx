@@ -1,58 +1,60 @@
 import { useState } from "react";
-import Footer from '../components/Footer'
-import axios from 'axios';
+import Footer from '../components/Footer';
 import { Link } from "react-router-dom";
-
+import db from "../data/db.json";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+  const navigation = useNavigate()
+  const [redirectToMain, setRedirectToMain] = useState(false);
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/login', {
-        username:username,
-        password:password,
-      });
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-      console.log('Token:', response.data.token);
-    } catch (error) {
-      console.error('Login failed', error);
+    const authenticatedUser = db.find((u) => u.email === email && u.password === password);
+
+    if (authenticatedUser) {
+      setUser(authenticatedUser);
+      console.log('Login successful');
+      setRedirectToMain(true);
+    } else {
+      console.log('Invalid credentials');
     }
   };
-    return (
-      <>
-       <div className = "login-form">
-          <div className = "login-banner">
-            <div className = "login-banner1">
+
+  return (
+    <>
+      {redirectToMain ? navigation('/main'): <Link to ="#" /> }
+
+      <div className="login-form">
+        <div className="login-banner">
+          <div className="login-banner1">
             <Link to="/"><i className="arrow"></i></Link>
-              <label>
-                <h2>Students helping students, every login is a step towards shared success.</h2>
-                <br></br>
-                <p>Connecting minds, empowering learning.</p>
-              </label>
-            </div>
+            <label>
+              <h2>Students helping students, every login is a step towards shared success.</h2>
+              <br />
+              <p>Connecting minds, empowering learning.</p>
+            </label>
           </div>
-          <div className = "login-content">
-          <div className = "overlay">
-            <div className = "login-content1">
-              <label>
-              </label>
-                <h1>Welcome Back!</h1>
-                <p> Please login to continue.</p>
+        </div>
+        <div className="login-content">
+          <div className="overlay">
+            <div className="login-content1">
+              <h1>Welcome Back!</h1>
+              <p>Please login to continue.</p>
               <div className="auth-form">
                 <h2>Login</h2>
-                <form>
+                <form onSubmit={handleLogin}>
                   <label>
-
                     <input
                       type="email"
                       placeholder="Email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      />
+                    />
                   </label>
                   <label>
                     <input
@@ -60,21 +62,19 @@ const Login = () => {
                       placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      />
+                    />
                   </label>
                   <br />
-                  <button type="button" onClick={handleLogin}>
-                    Login
-                  </button>
+                  <button type="submit">Login</button>
                 </form>
-                </div>
+              </div>
             </div>
           </div>
-          </div>
-          <Footer></Footer>
         </div>
-      </>
-    );
-  };
-  
-  export default Login;
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default Login;
