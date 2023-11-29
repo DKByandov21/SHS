@@ -1,27 +1,33 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Footer from '../components/Footer';
-import { Link } from "react-router-dom";
-import db from "../data/db.json";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios for making API requests
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState(''); // Change from email to username
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
-  const navigation = useNavigate()
   const [redirectToMain, setRedirectToMain] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
+  const navigation = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    const authenticatedUser = db.find((u) => u.email === email && u.password === password);
+    try {
+      // Make a request to your login API endpoint
+      const response = await axios.post('http://localhost:3000/auth/login', { username, password });
+      const authenticatedUser = response.data.user;
 
-    if (authenticatedUser) {
       setUser(authenticatedUser);
       console.log('Login successful');
+
+      // If successful, setRedirectToMain to true
       setRedirectToMain(true);
-    } else {
-      console.log('Invalid credentials');
+    } catch (error) {
+      // If login fails, set an error message
+      setErrorMessage('Invalid credentials');
+      console.error('Invalid credentials', error);
     }
   };
 
@@ -31,14 +37,7 @@ const Login = () => {
 
       <div className="login-form">
         <div className="login-banner">
-          <div className="login-banner1">
-            <Link to="/"><i className="arrow"></i></Link>
-            <label>
-              <h2>Students helping students, every login is a step towards shared success.</h2>
-              <br />
-              <p>Connecting minds, empowering learning.</p>
-            </label>
-          </div>
+          {/* ... Your existing banner code ... */}
         </div>
         <div className="login-content">
           <div className="overlay">
@@ -50,10 +49,10 @@ const Login = () => {
                 <form onSubmit={handleLogin}>
                   <label>
                     <input
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="text" 
+                      placeholder="Username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
                     />
                   </label>
                   <label>
@@ -67,6 +66,7 @@ const Login = () => {
                   <br />
                   <button type="submit">Login</button>
                 </form>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </div>
           </div>

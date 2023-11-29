@@ -39,7 +39,7 @@ export async function loginUser(username: string, password: string): Promise<any
     //const passwordIsValid = await bcrypt.compare(password, user.password);
 
     //if (!passwordIsValid) {
-        //throw new Error('Invalid password');
+    //throw new Error('Invalid password');
     //}
 
     const token = jwt.sign(
