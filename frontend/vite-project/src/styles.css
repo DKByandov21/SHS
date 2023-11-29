@@ -62,7 +62,7 @@
   overflow: hidden;
   background-position: center;
   background-size: 100%;
-  width: 100%;
+  width: 100vw;
   background-image: url("assets/banner.png");
 }
 .content-banner1 {

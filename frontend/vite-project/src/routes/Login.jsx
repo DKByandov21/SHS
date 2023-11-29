@@ -13,11 +13,11 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:5000/login', {
-        username,
-        password,
+        username:username,
+        password:password,
       });
 
-      console.log(response.data);
+      console.log('Token:', response.data.token);
     } catch (error) {
       console.error('Login failed', error);
     }
