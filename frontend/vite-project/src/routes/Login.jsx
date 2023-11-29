@@ -7,17 +7,17 @@ import { Link } from "react-router-dom";
 const Login = () => {
 
 
-    const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:5000/login', {
-        username,
-        password,
+        username:username,
+        password:password,
       });
 
-      console.log(response.data);
+      console.log('Token:', response.data.token);
     } catch (error) {
       console.error('Login failed', error);
     }

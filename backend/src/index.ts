@@ -28,7 +28,7 @@ const authenticateToken = (err:any,req: Request, res: Response, next: NextFuncti
 };
 
 app.post('/signup', async (req, res) => {
-  const {  firstName, lastName, email, username, grade, password } = req.body;
+  const { firstName, lastName, email, username, grade, password } = req.body;
 
   // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -49,23 +49,44 @@ app.post('/signup', async (req, res) => {
   res.json({ user });
 });
 
+app.get('/users', async (req, res) => {
+  try{
+    const users = await prisma.user.findMany()
+    console.log(users)
+  }
+  catch(error){
+    console.error('Error fetching users:', error)
+  }
+  
+})
 
 app.post('/login', async (req, res) => {
+
   const { username, password } = req.body;
 
+  const user = await prisma.user.findUnique({
+    where:{
+      username: username
+    }
+  })
   // Find user in the database
-  const user = await prisma.user.findUnique({ where: { username } });
-  if (!user) return res.status(404).json({ message: 'User not found' });
+  
+  if (!user)
+   return res.status(404).json({ message: 'User not found' });
 
   // Check password
-  const validPassword = await bcrypt.compare(password, user.password);
-  if (!validPassword) return res.status(401).json({ message: 'Invalid password' });
+  const passwordMatching = await bcrypt.compare(password, user.password)
+  if (!passwordMatching)
+    return res.status(401).json({ message: 'Invalid password' });
 
   // Generate and send token
   const token = jwt.sign({ id: user.id, username: user.username }, 'your-secret-key');
   res.json({ token });
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 const PORT = process.env.PORT || 5000;
 
