@@ -1,13 +1,20 @@
 import React, { useRef, useEffect } from 'react'; 
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer'
-import {Link} from "react-router-dom"
+import {Link, Navigate} from "react-router-dom"
 import ProfileIcon from "../assets/profile.png"
 
 function HomePage() {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
+
+  useEffect(() => {
+    if(localStorage.getItem('token') == null) {
+      <Navigate to={"/"} />
+      console.log(localStorage.getItem())
+    }
+  }, []);
 
 
   const handleClick_section1 = () => {

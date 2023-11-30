@@ -21,7 +21,8 @@ const Login = () => {
       const authenticatedUser = response.data.user;
       
       if (authenticatedUser) {
-        console.log("Login successful");
+        console.log(response.data.token);
+        localStorage.setItem('token', response.data.token);
         setRedirectToMain(true);
         }
 

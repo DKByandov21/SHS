@@ -10,6 +10,9 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    padding: '100px',
+    border: '1px solid black',
+    borderRadius: '2rem',
   },
 };
 
@@ -96,29 +99,63 @@ class Issue extends Component {
           isOpen={modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
           contentLabel="Example Modal"
+          style={customStyles}
         >
-          <h2>Hello</h2>
-          <button onClick={this.closeModal}>Close</button>
-          <div>I am a modal</div>
-          <form>
-            <label>Email:</label>
-            <input
-              type="text"
-              name="email"
-              value={formData["email"]}
-              onChange={this.handleInputChange}
-            />
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={formData["password"]}
-              onChange={this.handleInputChange}
-            />
-            <button onClick={this.handleSaveClick}>Save</button>
-          </form>
+          <h2>Tell us about your problem...</h2>
+          
+          <div className="Modal">
+            <form>
+              <label>Title:</label>
+              <input
+                type="text"
+                name="email"
+                value={formData["email"]}
+                onChange={this.handleInputChange}
+              />
+              <br />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formData["password"]}
+                onChange={this.handleInputChange}
+              />
+              <label>Title:</label>
+              <input
+                type="text"
+                name="email"
+                value={formData["email"]}
+                onChange={this.handleInputChange}
+              />
+              <br />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formData["password"]}
+                onChange={this.handleInputChange}
+              />
+              <label>Title:</label>
+              <input
+                type="text"
+                name="email"
+                value={formData["email"]}
+                onChange={this.handleInputChange}
+              />
+              <br />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formData["password"]}
+                onChange={this.handleInputChange}
+              />
+              <br />
+              <button className="btn-modal-save" onClick={this.handleSaveClick}>Save</button>
+              <button className="btn-modal-close" onClick={this.closeModal}>Close</button>
+            </form>
+          </div>
         </Modal>
       </>
     );

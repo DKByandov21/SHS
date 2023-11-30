@@ -670,7 +670,45 @@ hr {
   border-radius: 15px;
   padding: 1.5rem;
   font-weight: 800;  
-  margin-left:45rem;
+  margin-left:70%;
   margin-top:1rem;
   margin-bottom:1rem;
+}
+.Modal form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Modal input{
+  border: 1px solid rgba(0, 0, 0, 0.5)  ;
+  border-radius: 10px;
+  height: 30px;
+}
+.btn-modal-save{
+  border: 1px solid rgba(255, 255, 255, 0.5)  ;
+  border-radius: 10px;
+  height: 30px;
+  font-size: 1rem;
+  color: white;
+  width: 100px;
+  background-color: #234d24;
+  transition: all 0.5s;
+}
+.btn-modal-save:hover{
+  
+  background-color: #48a549;
+}
+.btn-modal-close{
+  border: 1px solid rgba(255, 255, 255, 0.5)  ;
+  border-radius: 10px;
+  height: 30px;
+  font-size: 1rem;
+  color: white;
+  width: 100px;
+  background-color: rgb(122, 0, 0);
+  transition: all 0.5s;
+}
+.btn-modal-close:hover{
+
+  background-color: rgb(200, 0, 0);
 }
