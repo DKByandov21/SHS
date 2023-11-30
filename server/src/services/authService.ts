@@ -44,8 +44,8 @@ export async function loginUser(username: string, password: string): Promise<any
 
     const token = jwt.sign(
         { id: user.id, username: user.username },
-        process.env.JWT_SECRET!, // Non-null assertion here
-        { expiresIn: 86400 } // 24 hours
+        process.env.JWT_SECRET!,
+        { expiresIn: 86400 }
     );
 
     return { user, token };

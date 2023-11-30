@@ -8,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
   const [redirectToMain, setRedirectToMain] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
   const navigation = useNavigate();
 
   const handleLogin = async (e) => {
@@ -16,26 +17,31 @@ const Login = () => {
     try {
       // Make a request to your login API endpoint
       const response = await axios.post('http://localhost:3000/auth/login', { username, password });
-      const authenticatedUser = response.data.user;
 
-      setUser(authenticatedUser);
-      console.log('Login successful');
+      const authenticatedUser = response.data.user;
+      
+      if (authenticatedUser) {
+        console.log("Login successful");
+        setRedirectToMain(true);
+        }
 
       // If successful, setRedirectToMain to true
       setRedirectToMain(true);
     } catch (error) {
       // If login fails, set an error message
+      setErrorMessage('Invalid credentials');
       console.error('Invalid credentials', error);
     }
   };
 
   return (
     <>
-      {redirectToMain ? navigation('/main'): <Link to ="#" /> }
+      {redirectToMain ? navigation('/main') : null}
+
 
       <div className="login-form">
         <div className="login-banner">
-          {/* ... Your existing banner code ... */}
+          
         </div>
         <div className="login-content">
           <div className="overlay">
@@ -64,6 +70,7 @@ const Login = () => {
                   <br />
                   <button type="submit">Login</button>
                 </form>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </div>
           </div>
