@@ -8,7 +8,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
   const [redirectToMain, setRedirectToMain] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
   const navigation = useNavigate();
 
   const handleLogin = async (e) => {
@@ -26,7 +25,6 @@ const Login = () => {
       setRedirectToMain(true);
     } catch (error) {
       // If login fails, set an error message
-      setErrorMessage('Invalid credentials');
       console.error('Invalid credentials', error);
     }
   };
@@ -66,7 +64,6 @@ const Login = () => {
                   <br />
                   <button type="submit">Login</button>
                 </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </div>
           </div>

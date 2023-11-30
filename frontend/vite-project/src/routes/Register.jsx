@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Footer from '../components/Footer';
 
-
 const Register = () => {
   // State variables to store form data
   const [username, setUsername] = useState('');
@@ -17,34 +16,34 @@ const Register = () => {
 
   // Event handler for form submission
   const handleRegister = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await axios.post('http://localhost:3000/users', {
-      username,
-      firstName,
-      lastName,
-      email,
-      password,
-    });
-
-    if (response.data.success) {
-      console.log("User registered successfully");
-      
-      // Redirect to the "main" page
-      navigate('/main', {
-        state: {
-          claes: response.data.user.classNames,
-          inputs: { username, firstName, lastName, email, password },
-        },
+    try {
+      const response = await axios.post('http://localhost:3000/users', {
+        username,
+        firstName,
+        lastName,
+        email,
+        password,
       });
-    } else {
-      console.error("Failed to register user:", response.data.error);
+
+      if (response.data.success) {
+        console.log("User registered successfully");
+
+        // Redirect to the "main" page
+        navigate('/main', {
+          state: {
+            claes: response.data.user.classNames,
+            inputs: { username, firstName, lastName, email, password },
+          },
+        });
+      } else {
+        console.error("Failed to register user:", response.data.error);
+      }
+    } catch (error) {
+      console.error('Registration failed', error);
     }
-  } catch (error) {
-    console.error('Registration failed', error);
-  }
-};
+  };
 
   return (
     <>
@@ -78,7 +77,7 @@ const Register = () => {
                   </label>
                   <label>
                     <input
-                      type="name"
+                      type="text" 
                       placeholder="First Name"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
@@ -86,7 +85,7 @@ const Register = () => {
                   </label>
                   <label>
                     <input
-                      type="name"
+                      type="text"
                       placeholder="Last Name"
                       className="input"
                       value={lastName}

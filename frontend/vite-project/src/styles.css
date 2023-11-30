@@ -610,8 +610,6 @@ hr {
   opacity: 10%;
 }
 .blogs {
-  flex-direction: column;
-  align-content: center;
   margin: 5rem;
   border: solid white;
   border-radius: 15px;
@@ -627,7 +625,8 @@ hr {
   align-content: center;
   justify-content: center;
   margin: 0px auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: solid black;
   border-radius: 15px;
   width: 35vw;
@@ -664,3 +663,14 @@ hr {
   width: 40vw;
   height: 100vh;
 }  
+.form-button {
+  color: white;
+  background-color: #234d24;
+  border: solid white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  font-weight: 800;  
+  margin-left:45rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
