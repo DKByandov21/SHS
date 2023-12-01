@@ -10,5 +10,6 @@
   },
   "routes": {
     "routesDir": "src/routes"
-  }
+  },
+  "middleware": "express"
 }

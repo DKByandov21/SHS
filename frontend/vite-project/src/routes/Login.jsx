@@ -12,28 +12,30 @@ const Login = () => {
   const navigation = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    try {
-      // Make a request to your login API endpoint
-      const response = await axios.post('http://localhost:3000/auth/login', { username, password });
+        try {
+            const response = await axios.post('http://localhost:3000/auth/login', { username, password });
+            const authenticatedUser = response.data.user;
 
-      const authenticatedUser = response.data.user;
-      
-      if (authenticatedUser) {
-        console.log(response.data.token);
-        localStorage.setItem('token', response.data.token);
-        setRedirectToMain(true);
+            if (authenticatedUser) {
+                console.log(response.data.token);
+
+                // Store the token securely (consider using HTTPOnly cookies)
+                localStorage.setItem('token', response.data.token);
+
+                // Redirect or handle the authenticated state
+                setRedirectToMain(true);
+            }
+
+            // If successful, setRedirectToMain to true
+            setRedirectToMain(true);
+        } catch (error) {
+            // If login fails, set an error message
+            setErrorMessage('Invalid credentials');
+            console.error('Invalid credentials', error);
         }
-
-      // If successful, setRedirectToMain to true
-      setRedirectToMain(true);
-    } catch (error) {
-      // If login fails, set an error message
-      setErrorMessage('Invalid credentials');
-      console.error('Invalid credentials', error);
-    }
-  };
+    };
 
   return (
     <>
