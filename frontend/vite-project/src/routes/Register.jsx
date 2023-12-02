@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Footer from '../components/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   // State variables to store form data
@@ -11,39 +13,52 @@ const Register = () => {
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
 
-  // React Router navigate hook for redirection
   const navigate = useNavigate();
-
-  // Event handler for form submission
+  
+  const IsValidate = () => {
+    let result = true;
+    if(username === '' || username === null){
+      result = false;
+      toast.warning("Please Enter Username")   
+      
+    }
+    if(email === '' || email === null){
+      result = false;
+      toast.warning("Please Enter Email")
+    }
+    if(firstName === '' || firstName === null){
+      result = false;
+      toast.warning("Please Enter FirstName")   
+      
+    }
+    if(lastName === '' || lastName === null){
+      result = false;
+      toast.warning("Please Enter LastName")
+    }
+    if(password === '' || password === null){
+      result = false;
+      toast.warning("Please Enter Password")   
+      
+    }
+    return result;
+  }
   const handleRegister = async (e) => {
     e.preventDefault();
+    let review = {username,email,firstName,lastName,password};
+    if (IsValidate()){
 
-    try {
-      const response = await axios.post('http://localhost:3000/users', {
-        username,
-        firstName,
-        lastName,
-        email,
-        password,
+      fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {'content-type': 'application/json'},
+        body:JSON.stringify(review)
+      }).then ((res) => {
+        toast.success('Registered successfully.')
+        navigate('/login');
+      }).catch ((err)=>{
+        toast.error('Failed :'+err.message);
       });
-
-      if (response.data.success) {
-        console.log("User registered successfully");
-
-        // Redirect to the "main" page
-        navigate('/main', {
-          state: {
-            claes: response.data.user.classNames,
-            inputs: { username, firstName, lastName, email, password },
-          },
-        });
-      } else {
-        console.error("Failed to register user:", response.data.error);
-      }
-    } catch (error) {
-      console.error('Registration failed', error);
+    };
     }
-  };
 
   return (
     <>
