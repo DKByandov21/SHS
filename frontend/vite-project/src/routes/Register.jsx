@@ -47,7 +47,11 @@ const Register = () => {
     let review = {username,email,firstName,lastName,password};
     if (IsValidate()){
 
+<<<<<<< HEAD
       fetch("http://localhost:3001/users", {
+=======
+      fetch("http://localhost:3000/users", {
+>>>>>>> 6b06ee3fb850d11d6c140e616062b94ac019ec94
         method: "POST",
         headers: {'content-type': 'application/json'},
         body:JSON.stringify(review)

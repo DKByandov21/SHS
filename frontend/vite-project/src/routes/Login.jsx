@@ -107,7 +107,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <Footer />
+        {/* Include your Footer component here */}
       </div>
     </>
   );
