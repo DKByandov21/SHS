@@ -1,51 +1,12 @@
 {
   "users": [
     {
-<<<<<<< HEAD
-=======
-      "id": 1,
-      "username": "ivanegei",
-      "email": "ivanegei@gmail.com",
-      "firstName": "Ivan",
-      "lastName": "Delchilov",
-      "password": "parola123"
-    },
-    {
-      "id": 2,
-      "username": "dasaada",
-      "email": "dasaada@gmail.com",
-      "firstName": "dasaada",
-      "lastName": "dasaada",
-      "password": "parola12"
-    },
-    {
->>>>>>> 6b06ee3fb850d11d6c140e616062b94ac019ec94
       "username": "ivaka",
       "email": "ivaka@gmail.com",
       "firstName": "Ivaka",
       "lastName": "Ivakada",
       "password": "parola1234",
-<<<<<<< HEAD
       "id": 1
-=======
-      "id": 3
-    },
-    {
-      "username": "ivanegei",
-      "email": "ivanegei@gmail.com",
-      "firstName": "Ivan",
-      "lastName": "Delchilov",
-      "password": "parola123",
-      "id": 4
-    },
-    {
-      "username": "ivanepedas",
-      "email": "ivanegdadasi@gmail.com",
-      "firstName": "Ivandadada",
-      "lastName": "Delchilovdada",
-      "password": "parola123",
-      "id": 5
->>>>>>> 6b06ee3fb850d11d6c140e616062b94ac019ec94
     },
     {
       "username": "dimitar",
@@ -53,7 +14,6 @@
       "firstName": "Dimitar",
       "lastName": "Dimitar",
       "password": "1tk0m3n",
-<<<<<<< HEAD
       "id": 2
     },
     {
@@ -63,30 +23,36 @@
       "lastName": "Dochev",
       "password": "paroal1234",
       "id": 3
-=======
-      "id": 6
->>>>>>> 6b06ee3fb850d11d6c140e616062b94ac019ec94
+    },
+    {
+      "username": "ivanDelchilov",
+      "email": "ivandelc@gmail.com",
+      "firstName": "Ivan",
+      "lastName": "Delchilov",
+      "password": "parola123",
+      "id": 4
     }
   ],
   "forms": [
     {
       "id": 1,
-<<<<<<< HEAD
-      "title": "dadasdad",
-      "description": "dad",
-      "content": "dadadd",
+      "title": "How to use react?",
+      "description": "I have a question about react...",
+      "content": "Recently, I had problem with",
       "date": ""
     },
     {
       "id": 2,
-      "title": "9JUJI",
-      "description": "SDF",
-      "content": "FFDF",
-=======
-      "title": "adadadad",
-      "description": "dadd",
-      "content": "adadad",
->>>>>>> 6b06ee3fb850d11d6c140e616062b94ac019ec94
+      "title": "How to use react?",
+      "description": "",
+      "content": "",
+      "date": ""
+    },
+    {
+      "id": 3,
+      "title": "How to use react?",
+      "description": "",
+      "content": "",
       "date": ""
     }
   ]

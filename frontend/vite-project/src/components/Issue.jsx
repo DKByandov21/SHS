@@ -26,7 +26,7 @@ class Issue extends Component {
         title: "",
         description: "",
         content: "",
-        date: "", // Assuming you want to include the date in the form data
+        date: "", 
       },
       forms: [],
     };
@@ -148,7 +148,6 @@ class Issue extends Component {
                 <p>{record.description}</p>
                 <p>{record.date}</p>
                 <button onClick={() => this.openEditModal(record)}>Edit</button>
-                <button>Learn more</button>
               </div>
             ))}
         </div>

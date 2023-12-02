@@ -11,7 +11,7 @@ class Profile extends Component {
         <div className="main-profile">
           <div className="main-profile1">
             <div className='profile'>
-              <img src={ProfileP} clas="profile" alt="Profile Picture" />
+              <img src={ProfileP} className="profile" alt="Profile Picture" />
               <Link to="/login">Signout</Link>
             </div>
           </div>

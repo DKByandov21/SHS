@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import Footer from '../components/Footer';
 import Issue from '../components/Issue';
@@ -36,13 +36,7 @@ function MainPage() {
     <div style={containerStyle}>
       <div className="main-page">
         <div className="side-menu">
-          <ul>
-            <li>
-              <Link to="#" onClick={toggleProfile}>
-                <h2>Profile</h2>
-              </Link>
-            </li>
-            <hr />
+          <ul>    
             <li>
               <Link to="#" onClick={toggleIssue}>
                 <h2>My Issues</h2>
@@ -50,7 +44,6 @@ function MainPage() {
             </li>
           </ul>
         </div>
-        {showProfile && <Profile />}
         {showIssue && <Issue />}
       </div>
       <Footer />
