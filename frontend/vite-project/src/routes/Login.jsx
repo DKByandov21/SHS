@@ -1,50 +1,77 @@
-import React, { useState } from "react";
-import Footer from '../components/Footer';
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios"; // Import Axios for making API requests
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../components/Footer";
 
 const Login = () => {
-  const [username, setUsername] = useState(''); // Change from email to username
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState(null);
-  const [redirectToMain, setRedirectToMain] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null); // New state for error message
   const navigation = useNavigate();
 
+  useEffect(() => {
+    const storedUsername = sessionStorage.getItem('username');
+
+    if (storedUsername) {
+      // If there is a username stored, clear the sessionStorage
+      sessionStorage.removeItem('username');
+      toast.success("Successfully Signout")
+    }
+  }, []);
+
   const handleLogin = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        try {
-            const response = await axios.post('http://localhost:3000/auth/login', { username, password });
-            const authenticatedUser = response.data.user;
-
-            if (authenticatedUser) {
-                console.log(response.data.token);
-
-                // Store the token securely (consider using HTTPOnly cookies)
-                localStorage.setItem('token', response.data.token);
-
-                // Redirect or handle the authenticated state
-                setRedirectToMain(true);
+    if (validate()) {
+      fetch("http://localhost:3001/users?username=" + username)
+        .then((res) => res.json())
+        .then((resp) => {
+          console.log(resp);
+          console.log(resp[0]["password"]);
+          if (Object.keys(resp).length === 0) {
+            toast.error("Please Enter valid username");
+          } else {
+            if (resp[0]["password"] === password) {
+              toast.success("Successful");
+              sessionStorage.setItem('username', username);
+              navigation('/main');
+            } else {
+              toast.error(`Please Enter valid credentials`);
             }
+          }
+        })
+        .catch((err) => {
+          toast.error("Login Failed due to:" + err.message);
+        });
+    }
+  };
 
-            // If successful, setRedirectToMain to true
-            setRedirectToMain(true);
-        } catch (error) {
-            // If login fails, set an error message
-            setErrorMessage('Invalid credentials');
-            console.error('Invalid credentials', error);
-        }
-    };
+  const validate = () => {
+    let result = true;
+    if (username === '' || username === null) {
+      result = false;
+      toast.warning("Please Enter Username");
+    }
+    if (password === '' || password === null) {
+      result = false;
+      toast.warning("Please Enter Password");
+    }
+    return result;
+  };
 
   return (
     <>
-      {redirectToMain ? navigation('/main') : null}
-
 
       <div className="login-form">
         <div className="login-banner">
-          
+          <div className="login-banner1">
+            <Link to="/"><i className="arrow"></i></Link>
+              <label>
+                <h2>Students helping students, one login closer to success.</h2>
+                <br />
+                <p>Unite in learning.</p>
+              </label>
+          </div>
         </div>
         <div className="login-content">
           <div className="overlay">
@@ -56,7 +83,7 @@ const Login = () => {
                 <form onSubmit={handleLogin}>
                   <label>
                     <input
-                      type="text" 
+                      type="text"
                       placeholder="Username"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
@@ -70,10 +97,12 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </label>
+                  <Link to="/register">
+                    <p id="account">Don't you have an account?</p>
+                  </Link>
                   <br />
                   <button type="submit">Login</button>
                 </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </div>
           </div>

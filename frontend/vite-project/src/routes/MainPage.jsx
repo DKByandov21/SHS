@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import Footer from '../components/Footer';
-import Profile from '../components/Profile';
 import Issue from '../components/Issue';
+import Profile from '../components/Profile';
 
 function MainPage() {
+
+  const navigation = useNavigate();
+  useEffect (()=> {
+    let username = sessionStorage.getItem('username');
+    if(username === '' || username === null){
+        navigation('/login')
+    }
+  },[]);
+
   const containerStyle = {
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
